@@ -27,6 +27,7 @@ function displayEmployess(employeeData) {
       let picture = employee.picture;
 
       employeeHTML += `
+
       <div class="card" data-index="${index}">
       <img class="avatar" src="${picture.large}" />
       <div class="text-container">
@@ -51,15 +52,15 @@ function displayModal(index) {
    } = employees[index];
    let date = new Date(dob.date);
    const modalHTML = `
-  <img class="avatar" src="${picture.large}" />
+  <img class="modal-avatar" src="${picture.large}" />
   <div class="text-container">
-  <h2 class="name">${name.first} ${name.last}</h2>
-  <p class="email">${email}</p>
-  <p class="address">${city}</p>
+  <h2 class="modal-name">${name.first} ${name.last}</h2>
+  <p class="modal-email">${email}</p>
+  <p class="modal-address">${city}</p>
   <hr />
-  <p>${phone}</p>
-  <p class="address">${street}, ${state} ${postcode}</p>
-  <p>Birthday:
+  <p class="modal-phone">${phone}</p>
+  <p class="modal-address">${street.number}, ${street.name}, ${state} ${postcode}</p>
+  <p class="modal-birthday">Birthday:
   ${date.getMonth()}/${date.getDate()}/${date.getFullYear()}</p>
   </div>
   `;
@@ -77,4 +78,30 @@ gridContainer.addEventListener("click", (e) => {
 
 modalClose.addEventListener("click", () => {
    overlay.classList.add("hidden");
+});
+
+// ===================================
+//           SEARCH FILTER
+// ===================================
+
+const searchValue = document.querySelector(".search");
+
+searchValue.addEventListener("keyup", () => {
+   let searchName = searchValue.value.toLowerCase();
+
+   // COLLECT ALL CARDS THAT ARE DISPLAYED GIVING US A COLLECTION TO FILTER
+   const cards = document.querySelectorAll(".card");
+
+   // LOOP THROUGH COLLECTED CARDS
+   cards.forEach((card, idx) => {
+      const names = document.querySelectorAll(".name");
+      let name = names[idx].textContent.toLowerCase();
+
+      // NAMES ARE COLLECTED ... USING A CONDITIONAL SEE IF THERE IS A MATCH
+      if (name.includes(searchName)) {
+         cards[idx].style.display = "flex";
+      } else {
+         cards[idx].style.display = "none";
+      }
+   });
 });

@@ -7,6 +7,76 @@
 body {
   /* ! FOR THE MODAL */
   position: relative;
+  max-width: 1400px;
+  margin: 0 auto;
+  background-color: #333;
+}
+
+.wrapper {
+  width: 100%;
+  height: auto;
+  background-color: #f5f5f5;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 20px 0;
+}
+
+.main-title {
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.search {
+  height: 45px;
+  width: 90%;
+  font-size: 1.2rem;
+  padding-left: 10px;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  row-gap: 15px;
+  min-height: 400px;
+  /* border: 2px solid red; */
+}
+
+.avatar {
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  margin-right: 10px;
+}
+
+.name {
+  margin-bottom: 5px;
+}
+
+.email {
+  font-size: 0.8rem;
+  margin-bottom: 5px;
+}
+
+.card {
+  display: flex;
+  border: 1px solid grey;
+  /* margin: 5px; */
+  width: 90%;
+  height: 150px;
+  justify-self: center;
+  padding: 10px;
+}
+
+.card:hover {
+  background-color: #777;
+  color: white;
 }
 
 .overlay {
@@ -19,7 +89,7 @@ body {
 }
 
 .modal {
-  width: 375px;
+  width: 95%;
   margin: 15% auto auto;
   position: relative;
   text-align: center;
@@ -31,13 +101,77 @@ body {
 
 .modal-close {
   position: absolute;
+  font-size: 1.2rem;
   right: 15px;
   top: 5px;
   cursor: pointer;
 }
 
+.modal-avatar {
+  border-radius: 50%;
+  width: 140px;
+  height: 140px;
+  margin-right: 10px;
+  margin-bottom: 15px;
+}
+
+.modal-name {
+  margin-bottom: 5px;
+  font-size: 1.8rem;
+}
+
+.modal-email {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.modal-address {
+  margin-bottom: 15px;
+  font-size: 1.4rem;
+}
+
+.modal-phone {
+  font-size: 1.4rem;
+  margin: 15px 0;
+}
+
+.modal-birthday {
+  font-size: 1.4rem;
+}
+
 .hidden {
   display: none;
+}
+
+@media screen and (min-width: 740px) {
+  .grid-container {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+  }
+
+  .email {
+    font-size: 1rem;
+  }
+
+  .modal {
+    width: 60%;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .grid-container {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+  }
+
+  .search {
+    width: 600px;
+  }
+
+  .avatar {
+    width: 90px;
+    height: 90px;
+    margin-right: 10px;
+  }
 }
 
 /*# sourceMappingURL=styles.css.map */
