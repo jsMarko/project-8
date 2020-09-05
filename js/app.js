@@ -105,3 +105,27 @@ searchValue.addEventListener("keyup", () => {
       }
    });
 });
+
+// ===========================================================
+//          INCREMENT THROUGH USERS VIA ARROW BUTTONS
+// ===========================================================
+const left = document.querySelector(".left");
+const right = document.querySelector(".right");
+
+left.textContent = "<";
+right.textContent = ">";
+
+let modIdx = 0;
+
+left.addEventListener("click", () => {
+   if (modIdx > 0) {
+      modIdx--;
+      displayModal(modIdx);
+   }
+});
+right.addEventListener("click", () => {
+   if (modIdx < 11) {
+      modIdx++;
+      displayModal(modIdx);
+   }
+});

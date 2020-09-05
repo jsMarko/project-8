@@ -139,6 +139,17 @@ header {
    font-size: 1.4rem;
 }
 
+.arrow-buttons-container {
+   display: flex;
+   justify-content: space-between;
+}
+
+.left,
+.right {
+   font-size: 1.8rem;
+   padding: 4px;
+}
+
 .hidden {
    display: none;
 }
